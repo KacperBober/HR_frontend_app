@@ -1,0 +1,19 @@
+{% extends "layout_unbranded.html" %} {% block pageTitle %} Employees Form {%
+    endblock %} {% block content %} {% if errormessage %}
+    <div class="govuk-error-message">{{ errormessage }}</div>
+    {% endif %}
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Get Employees from department:</h1>
+        <form class="form" action="/employees_by_dep" method="post">
+          {{ govukInput({ label: { text: "Enter Department", classes:
+          "govuk-label--l", isPageHeading: true }, id: "department", name: "department", value:
+          "Delivery" }) }}
+          <button class="govuk-button" data-module="govuk-button">
+            Get List
+          </button>
+        </form>
+      </div>
+    </div>
+    {% endblock %}

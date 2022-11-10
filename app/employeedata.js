@@ -19,3 +19,15 @@ exports.getEmployees = async () => {
     return new Error("Could not get employee");
   }
 };
+
+exports.getEmployeesByDepartment = async (department) => {
+  try {
+    const employeeResponse = await axios.get(
+      "http://localhost:8080/api/employees/" + department
+    );
+    //console.log(employeeResponse.data)
+    return employeeResponse.data;
+  } catch (e) {
+    return new Error("Could not get employee");
+  }
+};
