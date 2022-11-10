@@ -12,22 +12,23 @@
 
 {% for employee in employees %} 
 
-{% set employeerows= (employeerows.push([{ text: employee.employeeId},
-                                          {text: employee.empName},
+{% set employeerows= (employeerows.push([{text: employee.name},
                                           {text: employee.address},
-                                          {text: employee.nin}, 
-                                          {text: employee.salary},
-                                           {text: employee.empNumber}]),
+                                          {text: employee.nationalInsuranceNo}, 
+                                          {text: employee.bankAccountIBANorBic},
+                                           {text: employee.startingSalary},
+                                           {text: employee.employeeNumber}]),
                                             employeerows) %} 
 {% endfor %} 
 
 {{govukTable({ 
-    head: [ { text: "ID" },
-          { text: "Name" },
-          { text: "Address" }, 
-          { text: "NIN" },
-          { text: "Salary" },
-          { text: "Number" } ], 
+    head: [{ text: "Name"},
+          { text: "Address"}, 
+          { text: "NIN"},
+          { text: "Account"},
+          { text: "Salary"},
+          { text: "Number"}
+           ], 
     rows: employeerows }) 
 }} 
 {% else %}
