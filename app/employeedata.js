@@ -11,7 +11,7 @@ exports.addEmployee = async (newEmployee) => {
 exports.getEmployees = async () => {
   try {
     const employeeResponse = await axios.get(
-      "http://localhost:8080/api/employees"
+      "http://localhost:8080/api/employee"
     );
     //console.log(employeeResponse.data)
     return employeeResponse.data;
