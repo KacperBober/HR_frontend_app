@@ -8,6 +8,18 @@ router.get("/addemployee", async (req, res) => {
   res.render("new-employee-form");
 });
 
+router.get("/department_form", async (req, res) => {
+  res.render("department-employee-form");
+});
+
+router.post("/employees_by_dep", async (req, res) => {
+  let body = req.body
+  console.log(body["department"])
+  res.render("list-employees", {
+    employees: await employeedata.getEmployeesByDepartment(body["department"]),
+  });
+});
+
 router.post("/addemployee", async (req, res) => {
   try {
     let insertedKey = await employeedata.addEmployee(req.body);
