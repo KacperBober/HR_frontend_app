@@ -1,0 +1,34 @@
+{% extends "layout_unbranded.html" %} {% block pageTitle %} Employees Form {%
+endblock %} {% block content %} {% if errormessage %}
+<div class="govuk-error-message">{{ errormessage }}</div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Add new Employee form:</h1>
+    <form class="form" action="addemployee" method="post">
+      {{ govukInput({ label: { text: "What is the Employee's name?", classes:
+      "govuk-label--l", isPageHeading: true }, id: "name", name: "name" ,value:
+      data["name"] }) }} {{ govukInput({ label: { text: "What is the Employee's
+      address?", classes: "govuk-label--l", isPageHeading: true }, id:
+      "address", name: "address" ,value: data["address"] }) }} {{ govukInput({
+      label: { text: "What is the Employee's NIN", classes: "govuk-label--l",
+      isPageHeading: true }, id: "nationalInsuranceNo", name:
+      "nationalInsuranceNo" ,value: data["nationalInsuranceNo"] }) }} {{
+      govukInput({ label: { text: "What is the Employee's bank account no.?",
+      classes: "govuk-label--l", isPageHeading: true }, id:
+      "bankAccountIBANorBic", name: "bankAccountIBANorBic" ,value:
+      data["bankAccountIBANorBic"] }) }} {{ govukInput({ label: { text: "What is
+      the Employee's starting salary ?", classes: "govuk-label--l",
+      isPageHeading: true }, id: "startingSalary", name: "startingSalary"
+      ,value: data["startingSalary"] }) }}{{ govukInput({ label: { text: "What
+      is the Employee's ID number ?", classes: "govuk-label--l", isPageHeading:
+      true }, id: "employeeNumber", name: "employeeNumber" ,value:
+      data["employeeNumber"] }) }}
+      <button class="govuk-button" data-module="govuk-button">
+        Add new Employee
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}
