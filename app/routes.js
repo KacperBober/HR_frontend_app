@@ -9,8 +9,12 @@ router.get("/addemployee", async (req, res) => {
 });
 
 router.post("/addemployee", async (req, res) => {
-  var employee = req.body;
-  let insertedKey = await employeedata.addEmployee(req.body);
+  try {
+    let insertedKey = await employeedata.addEmployee(req.body);
+    res.render("new-employee-form");
+  } catch (e) {
+    return new Error("Could not get employee");
+  }
 });
 
 router.get("/list-employees", async (req, res) => {
